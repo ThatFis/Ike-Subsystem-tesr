@@ -8,7 +8,7 @@ package frc.robot;
 
 
 import com.revrobotics.spark.SparkMax;     
-import com.revrobotics.spark.SparkMaxLowLevel;
+// import com.revrobotics.spark.SparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -69,14 +69,7 @@ public Robot() {
     //Operater = new XboxController(Constants.OperatorConstants.kOperatorControllerPort);
 
 
-//
-    BallMotorI = new SparkMax(Constants.OperatorConstants.BallMotorI, MotorsType .kBrushless);
-    BallMotorP = new SparkMax(Constants.OperatorConstants.BallMotorP, MotorType.kBrushless);
 
-//
-    CoralMotorL = new SparkMax(Constants.OperatorConstants.CoralMotorL, MotorType.kBrushless);
-    CoralMotorR = new SparkMax(Constants.OperatorConstants.CoralMotorR, MotorType.kBrushless);
-//
 
 }
   
