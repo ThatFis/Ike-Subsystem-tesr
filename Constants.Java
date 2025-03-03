@@ -19,14 +19,14 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
     public static final int kOperatorControllerPort = 1;
   
-    public static final int BallMotorI = 5; // CAN ID for Joint 1 motor   this one
-    public static final int BallMotorP = 6; 
-    public static final int CoralMotorL = 7; // CAN ID for cage motor   
-    public static final int CoralMotorR = 8; // CAN ID for intake motor 2   
+    public static final int BallMotorI = 5; // CAN ID for intake ball
+    public static final int BallMotorP = 6;  //CAN ID TO INTAKE BAL
+    public static final int CoralMotorL = 7; // CAN ID fOR CORAL OUTTAKE   
+    public static final int CoralMotorR = 8; // CAN ID FOR CORAL OUTAKE
+    public static final int LiftMotor = 9; // CAN ID FOR elevator lift
+
    // public static final int ballintakeID = 17;
     
-  }
-  public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+  
   }
 }
