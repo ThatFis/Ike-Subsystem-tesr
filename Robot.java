@@ -6,6 +6,7 @@ package frc.robot;
 
 //test drive on imports//
 
+
 import com.revrobotics.spark.SparkMax;     
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -70,8 +71,8 @@ public Robot() {
 
 
 //
-    BallMotorI = new SparkMax(Constants.OperatorConstants.ID, MotorType.kBrushless);
-    BallMotorP = new SparkMax(Constants.OperatorConstants.ID, MotorType.kBrushless);
+    BallMotorI = new SparkMax(Constants.OperatorConstants.BallMotorI, Neo .kBrushless);
+    BallMotorP = new SparkMax(Constants.OperatorConstants.BallMotorP, MotorType.kBrushless);
 
 //
     CoralMotorL= new SparkMax(Constants.OperatorConstants.ID, MotorType.kBrushless);
@@ -136,24 +137,32 @@ public Robot() {
   @Override
   public void teleopPeriodic(){
 
-          //Motors  that hold the ball//
+          //Motors intake pivets the ball subsystem//
 
           // Set the motor speed based on trigger values
           if (Operater.getRightTriggerAxis() > 0.1) {
             // Move motor forward
-            BallMotorR.set(-.4); // Scale speed down to 50%
-            BallMotorL.set(-.4); // Scale speed down to 50%
+            BallMotorP.set(-.4); // Scale speed down to 50%
         } else if (Operater.getLeftTriggerAxis() > 0.05) {
             // Move motor backward
-            BallMotorR.set(.4); // Scale speed down to 50%
-            BallMotorL.set(.4); // Scale speed down to 50%
+            BallMotorP.set(.4); // Scale speed down to 50%
         } else {
             // Stop motor
-            BallMotorR.set(0);
-            BallMotorL.set(0);
-        }
+            BallMotorP.set(0);
 
-      // Wrist motor control
+         //inatke coral//   
+        }
+        if (Operater.getRightBumperButtonPressed()) {
+          // Move motor forward
+          BallMotorI.set(-.4); // Scale speed down to 50%
+      } else if (Operater.getLeftBumperButtonPressed()) {
+          // Move motor backward
+          BallMotorI.set(.4); // Scale speed down to 50%
+      } else {
+          // Stop motor
+          BallMotorI.set(0);
+
+      //elevator subsystem
 
       // Set the motor speed based on trigger values
       if (Driver.getAButtonPressed()) {
@@ -171,12 +180,12 @@ public Robot() {
       // Motors that push the coral to the reef
 
        // Control the motors based on bumper inputs
-       if (Driver.getLeftBumperButton()) {
+       if (Driver.getAButtonPressed()) {
            // Spin motors forward
            CoralMotorL.set(.8); // 80% speed forward
            CoralMotorR.set(.8); // 80% speed forward
 
-       } else if (Driver.getRightBumperButton()) {
+       } else if (Driver.getBButtonPressed()) {
            // Spin motors backward
            CoralMotorL.set(.8); // 80% speed forward
            CoralMotorR.set(.8); // 80% speed forward
