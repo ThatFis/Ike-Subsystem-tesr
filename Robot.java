@@ -8,7 +8,7 @@ package frc.robot;
 
 
 import com.revrobotics.spark.SparkMax;     
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.spark.SparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -49,16 +49,15 @@ private SparkMax LiftMotor;
 
 
 
-
 //private final DoubleSolenoid Endsolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 7, 8);
 //private final DoubleSolenoid clawsolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 6,9);
 //private final DoubleSolenoid Ballsolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 5, 10);
 //private final DoubleSolenoid Armsolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 11, 4);
 
-private boolean BallOut = false;
-private boolean Processor = false;
-private boolean ground = false;
-private boolean End = false;
+// private boolean BallOut = false;
+// private boolean Processor = false;
+// private boolean ground = false;
+// private boolean End = false;
 
 public Robot() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
@@ -71,14 +70,13 @@ public Robot() {
 
 
 //
-    BallMotorI = new SparkMax(Constants.OperatorConstants.BallMotorI, Neo .kBrushless);
+    BallMotorI = new SparkMax(Constants.OperatorConstants.BallMotorI, MotorsType .kBrushless);
     BallMotorP = new SparkMax(Constants.OperatorConstants.BallMotorP, MotorType.kBrushless);
 
 //
-    CoralMotorL= new SparkMax(Constants.OperatorConstants.ID, MotorType.kBrushless);
-    CoralMotorR= new SparkMax(Constants.OperatorConstants.ID, MotorType.kBrushless);
+    CoralMotorL = new SparkMax(Constants.OperatorConstants.CoralMotorL, MotorType.kBrushless);
+    CoralMotorR = new SparkMax(Constants.OperatorConstants.CoralMotorR, MotorType.kBrushless);
 //
-    ballMotor = new SparkMax(Constants.OperatorConstants.ballintakeID, MotorType.kBrushless);
 
 }
   
@@ -187,15 +185,15 @@ public Robot() {
 
        } else if (Driver.getBButtonPressed()) {
            // Spin motors backward
-           CoralMotorL.set(.8); // 80% speed forward
-           CoralMotorR.set(.8); // 80% speed forward
+           CoralMotorL.set(-.8); // 80% speed forward
+           CoralMotorR.set(-.8); // 80% speed forward
        } else{
            // Stop motors
            CoralMotorL.set(0);
            CoralMotorR.set(0);
 
        }
-
+      }
 
     //on and off for hang cylinder
 
