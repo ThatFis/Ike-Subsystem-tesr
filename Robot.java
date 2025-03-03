@@ -5,9 +5,6 @@
 package frc.robot;
 
 //test drive on imports//
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-//
 
 import com.revrobotics.spark.SparkMax;     
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -67,7 +64,7 @@ public Robot() {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    //Controller type//
+    //Controller type//  
     //Driver = new XboxController(Constants.OperatorConstants.kDriverControllerPort);
     //Operater = new XboxController(Constants.OperatorConstants.kOperatorControllerPort);
 
